@@ -14,12 +14,6 @@ module.exports = function(options, imports, register) {
 
   app.use(express.static(__dirname + '/public'));
 
-  // redirect to homeUrl
-  app.get('/', function(req, res) {
-    console.log(homeUrl);
-    res.redirect(homeUrl);
-  });
-
   // switch home url to parameter home
   app.get('/switch', function(req, res) {
     var query = url.parse(req.url, true).query;
@@ -27,7 +21,6 @@ module.exports = function(options, imports, register) {
     if (query.page) {
       homeUrl = query.page
     }
-    console.log(homeUrl);
 
     res.end(JSON.stringify({
       code: 200,
@@ -40,6 +33,11 @@ module.exports = function(options, imports, register) {
       code: 200,
       data: homeUrl
     }));
+  });
+
+  // redirect to homeUrl
+  app.use(function(req, res) {
+    res.redirect(homeUrl);
   });
 
   var port = argv.p || 8082;
