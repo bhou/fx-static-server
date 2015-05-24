@@ -42,7 +42,7 @@ module.exports = function(options, imports, register) {
     }));
   });
 
-  var port = argv.port || 8082;
+  var port = argv.p || 8082;
   server.listen(port);
 
   logger.info('server started at port', port);
