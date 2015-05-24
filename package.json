@@ -1,0 +1,14 @@
+{
+  "name": "fx-static-server",
+  "version": "0.0.1",
+  "main": "./static-server.js",
+  "engines": {
+    "node": "0.10.*"
+  },
+  "dependencies": {
+    "fx-runtime": "0.1.x",
+    "fx-express": "0.1.x",
+    "fx-logger": "0.1.x",
+    "fx-eventbus": "0.1.x"
+  }
+}
